@@ -1,0 +1,87 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f5f7;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.stopwatch-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px 32px;
+  width: 260px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stopwatch-title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.stopwatch-time {
+  font-size: 28px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 18px;
+}
+
+.stopwatch-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-start {
+  background: #4caf7d;
+}
+
+.btn-stop {
+  background: #d9534f;
+}
+
+.btn-reset {
+  background: #4a90c2;
+}
+
+.btn-lap {
+  background: #f0ad4e;
+  color: #4a3200;
+  width: 100%;
+}
+
+.lap-list {
+  list-style: none;
+  margin: 14px 0 0 0;
+  padding: 0;
+  text-align: left;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.lap-item {
+  font-size: 13px;
+  color: #555;
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
