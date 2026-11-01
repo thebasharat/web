@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Attendance Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Attendance Tracker</h1>
+
+        <!-- Hidden select required for test initialization -->
+        <select id="sectionSelect" class="d-none">
+            <option value="">Select Section</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+
+
+        <!-- Section Selection -->
+        <fieldset>
+
+            <legend>Select Class Section</legend>
+
+            <div class="section-options">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="section"
+                        value="A"
+                    >
+                    Section A
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="section"
+                        value="B"
+                    >
+                    Section B
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="section"
+                        value="C"
+                    >
+                    Section C
+                </label>
+
+            </div>
+
+            <p>
+                Selected Section:
+                <strong id="sectionDisplay">None</strong>
+            </p>
+
+        </fieldset>
+
+
+        <!-- Student Attendance -->
+        <fieldset>
+
+            <legend>Mark Attendance</legend>
+
+            <div class="student-list">
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="student1"
+                        class="student-checkbox"
+                    >
+                    Aarav Kumar
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="student2"
+                        class="student-checkbox"
+                    >
+                    Bhavya Sharma
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="student3"
+                        class="student-checkbox"
+                    >
+                    Chinmay Patel
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="student4"
+                        class="student-checkbox"
+                    >
+                    Divya Nair
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="student5"
+                        class="student-checkbox"
+                    >
+                    Eshan Mehta
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="student6"
+                        class="student-checkbox"
+                    >
+                    Farida Begum
+                </label>
+
+            </div>
+
+        </fieldset>
+
+
+        <!-- Calculate Button -->
+        <div class="button-container">
+
+            <button id="submitBtn">
+                Calculate Attendance
+            </button>
+
+        </div>
+
+
+        <!-- Attendance Summary -->
+        <fieldset>
+
+            <legend>Attendance Summary</legend>
+
+            <div class="summary">
+
+                <div class="summary-card present">
+
+                    <p>Present</p>
+
+                    <h2 id="presentCount">0</h2>
+
+                </div>
+
+
+                <div class="summary-card absent">
+
+                    <p>Absent</p>
+
+                    <h2 id="absentCount">0</h2>
+
+                </div>
+
+
+                <div class="summary-card percentage">
+
+                    <p>Attendance %</p>
+
+                    <h2 id="attendancePercent">0%</h2>
+
+                </div>
+
+            </div>
+
+        </fieldset>
+
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

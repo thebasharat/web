@@ -1,0 +1,32 @@
+#price-tag {
+  background: white;
+  border: 2px solid #e67e22;
+  border-radius: 10px;
+  padding: 24px;
+  max-width: 400px;
+  margin: 40px auto;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#product-name {
+  color: #e67e22;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+#displayed-price {
+  color: #2c3e50;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+#toggle-discount {
+  background: #e67e22;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
