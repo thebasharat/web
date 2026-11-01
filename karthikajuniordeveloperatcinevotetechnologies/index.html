@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Movie Genre Poll</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f3f6;
+            color: #111827;
+        }
+
+        .container {
+            width: 985px;
+            max-width: 90%;
+            margin: 25px auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        fieldset {
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            padding: 28px;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        legend {
+            font-size: 21px;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        .age-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            margin-bottom: 18px;
+        }
+
+        .age-options label,
+        .genre-list label {
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .genre-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px 50px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 17px;
+            height: 17px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: -5px;
+            margin-bottom: 40px;
+        }
+
+        button {
+            border: none;
+            border-radius: 7px;
+            padding: 14px 40px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #pollSubmitBtn {
+            background-color: #2563eb;
+            color: white;
+            margin-right: 18px;
+        }
+
+        #pollSubmitBtn:hover {
+            background-color: #1d4ed8;
+        }
+
+        #pollResetBtn {
+            background-color: #e5e7eb;
+            color: #111827;
+        }
+
+        #pollResetBtn:hover {
+            background-color: #d1d5db;
+        }
+
+        .results {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .result-card {
+            text-align: center;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .result-card p {
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+
+        .result-card h2 {
+            margin: 0;
+            font-size: 38px;
+        }
+
+        .selected {
+            background-color: #2563eb;
+        }
+
+        .total {
+            background-color: #6b7280;
+        }
+
+        .selected-genres h3 {
+            margin-bottom: 5px;
+            font-size: 19px;
+        }
+
+        .selected-genres p {
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .d-none {
+            display: none;
+        }
+
+        @media (max-width: 700px) {
+            .age-options,
+            .genre-list,
+            .results {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Movie Genre Poll</h1>
+
+        <!-- Hidden selector -->
+        <select id="sectionSelect" class="d-none">
+            <option value="">Select</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+
+
+        <!-- Age Group -->
+        <fieldset>
+            <legend>Select Your Age Group</legend>
+
+            <div class="age-options">
+
+                <label>
+                    <input type="radio"
+                           name="ageGroup"
+                           value="teen">
+                    Teen (13-17)
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="ageGroup"
+                           value="adult">
+                    Adult (18-40)
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="ageGroup"
+                           value="senior">
+                    Senior (40+)
+                </label>
+
+            </div>
+
+            <p>
+                Selected Age Group:
+                <strong id="ageDisplay">None</strong>
+            </p>
+        </fieldset>
+
+
+        <!-- Genres -->
+        <fieldset>
+            <legend>Choose Your Favourite Genres</legend>
+
+            <div class="genre-list">
+
+                <label>
+                    <input type="checkbox"
+                           id="genre1"
+                           class="genre-checkbox"
+                           value="Action">
+                    Action
+                </label>
+
+                <label>
+                    <input type="checkbox"
+                           id="genre2"
+                           class="genre-checkbox"
+                           value="Comedy">
+                    Comedy
+                </label>
+
+                <label>
+                    <input type="checkbox"
+                           id="genre3"
+                           class="genre-checkbox"
+                           value="Drama">
+                    Drama
+                </label>
+
+                <label>
+                    <input type="checkbox"
+                           id="genre4"
+                           class="genre-checkbox"
+                           value="Thriller">
+                    Thriller
+                </label>
+
+                <label>
+                    <input type="checkbox"
+                           id="genre5"
+                           class="genre-checkbox"
+                           value="Romance">
+                    Romance
+                </label>
+
+                <label>
+                    <input type="checkbox"
+                           id="genre6"
+                           class="genre-checkbox"
+                           value="Sci-Fi">
+                    Sci-Fi
+                </label>
+
+            </div>
+        </fieldset>
+
+
+        <!-- Buttons -->
+        <div class="buttons">
+
+            <button id="pollSubmitBtn">
+                Submit Poll
+            </button>
+
+            <button id="pollResetBtn">
+                Reset
+            </button>
+
+        </div>
+
+
+        <!-- Results -->
+        <fieldset>
+            <legend>Poll Results</legend>
+
+            <div class="results">
+
+                <div class="result-card selected">
+                    <p>Genres Selected</p>
+                    <h2 id="genreCount">0</h2>
+                </div>
+
+                <div class="result-card total">
+                    <p>Total Genres Available</p>
+                    <h2 id="totalGenres">6</h2>
+                </div>
+
+            </div>
+
+            <div class="selected-genres">
+                <h3>Selected Genres:</h3>
+                <p id="genreResult">None</p>
+            </div>
+
+        </fieldset>
+
+    </div>
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const ageRadios =
+                document.querySelectorAll('input[name="ageGroup"]');
+
+            const checkboxes =
+                document.querySelectorAll(".genre-checkbox");
+
+            const ageDisplay =
+                document.getElementById("ageDisplay");
+
+            const pollSubmitBtn =
+                document.getElementById("pollSubmitBtn");
+
+            const pollResetBtn =
+                document.getElementById("pollResetBtn");
+
+            const genreCount =
+                document.getElementById("genreCount");
+
+            const totalGenres =
+                document.getElementById("totalGenres");
+
+            const genreResult =
+                document.getElementById("genreResult");
+
+
+            // Display total genres
+            totalGenres.textContent = checkboxes.length;
+
+
+            // Age group selection
+            for (let i = 0; i < ageRadios.length; i++) {
+
+                ageRadios[i].addEventListener("change", function () {
+
+                    let index = 0;
+
+                    // Required while loop
+                    while (index < ageRadios.length) {
+
+                        if (ageRadios[index].checked) {
+
+                            ageDisplay.textContent =
+                                ageRadios[index].value;
+
+                            break;
+                        }
+
+                        index++;
+                    }
+                });
+            }
+
+
+            // Submit Poll
+            pollSubmitBtn.addEventListener("click", function () {
+
+                let selectedCount = 0;
+
+                // Required for loop
+                for (let i = 0; i < checkboxes.length; i++) {
+
+                    if (checkboxes[i].checked) {
+                        selectedCount++;
+                    }
+                }
+
+                genreCount.textContent = selectedCount;
+
+
+                // Required do...while loop
+                let selectedGenres = [];
+                let index = 0;
+
+                if (checkboxes.length > 0) {
+
+                    do {
+
+                        if (checkboxes[index].checked) {
+
+                            selectedGenres.push(
+                                checkboxes[index].value
+                            );
+                        }
+
+                        index++;
+
+                    } while (index < checkboxes.length);
+                }
+
+
+                if (selectedGenres.length > 0) {
+
+                    genreResult.textContent =
+                        selectedGenres.join(", ");
+
+                } else {
+
+                    genreResult.textContent = "None";
+                }
+
+            });
+
+
+            // Reset
+            pollResetBtn.addEventListener("click", function () {
+
+                for (let i = 0; i < checkboxes.length; i++) {
+
+                    checkboxes[i].checked = false;
+
+                }
+
+                genreCount.textContent = "0";
+
+                genreResult.textContent = "None";
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

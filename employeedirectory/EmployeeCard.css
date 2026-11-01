@@ -1,0 +1,30 @@
+.employee-card {
+    background: #ffffff;
+    border: 2px solid #2980b9;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 12px;
+    max-width: 280px;
+    display: inline-block;
+    vertical-align: top;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .employee-name {
+    color: #2980b9;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .employee-role {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  
+  .employee-department {
+    color: #27ae60;
+    font-size: 15px;
+    font-weight: bold;
+  }
