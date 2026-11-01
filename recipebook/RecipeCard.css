@@ -1,0 +1,45 @@
+.recipe-card {
+    background: white;
+    border: 2px solid #c0392b;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px auto;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .recipe-name {
+    color: #c0392b;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .recipe-cuisine {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  
+  .recipe-cook-time {
+    color: #888;
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  
+  #favourite-btn {
+    background: #c0392b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  #favourite-status {
+    color: #27ae60;
+    font-size: 15px;
+    font-weight: bold;
+  }

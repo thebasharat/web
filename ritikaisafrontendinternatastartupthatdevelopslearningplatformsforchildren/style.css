@@ -1,0 +1,15 @@
+#highlightBtn {
+    background-color: blue;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: px;
+    font-size: 12px;
+ 
+}
+body{
+    text-align:center;
+}
+#textPara.Highlighter{
+    background-color: yellow;
+}

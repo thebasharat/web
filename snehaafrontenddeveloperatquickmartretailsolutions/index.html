@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Bill Calculator</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef1f6;
+    margin: 0;
+    padding: 30px 0;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  }
+  fieldset {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    padding: 14px 18px;
+  }
+  legend {
+    font-weight: bold;
+    padding: 0 6px;
+  }
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .item-row, .payment-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .payment-options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  #paymentDisplay {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #333;
+  }
+  .buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  #calculateBtn {
+    background: #4a5fd6;
+    color: #fff;
+  }
+  #resetBillBtn {
+    background: #cfd4e6;
+    color: #222;
+  }
+  .summary-boxes {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .summary-box {
+    flex: 1;
+    background: #4a5fd6;
+    color: #fff;
+    border-radius: 6px;
+    padding: 14px;
+    text-align: center;
+  }
+  .summary-box .label {
+    font-size: 12px;
+    opacity: 0.9;
+  }
+  .summary-box .value {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 6px;
+  }
+  #itemSummary {
+    margin: 0;
+    padding-left: 18px;
+  }
+</style>
+</head>
+<body>
+<h1>Shopping Bill Calculator</h1>
+<div class="container">
+
+  <fieldset id="itemsFieldset">
+    <legend>Select Items</legend>
+    <div class="items-grid">
+      <div class="item-row">
+        <input type="checkbox" id="item1" class="item-checkbox" data-name="Rice" data-price="120">
+        <label for="item1">Rice — Rs.120</label>
+      </div>
+      <div class="item-row">
+        <input type="checkbox" id="item2" class="item-checkbox" data-name="Oil" data-price="95">
+        <label for="item2">Oil — Rs.95</label>
+      </div>
+      <div class="item-row">
+        <input type="checkbox" id="item3" class="item-checkbox" data-name="Sugar" data-price="50">
+        <label for="item3">Sugar — Rs.50</label>
+      </div>
+      <div class="item-row">
+        <input type="checkbox" id="item4" class="item-checkbox" data-name="Milk" data-price="60">
+        <label for="item4">Milk — Rs.60</label>
+      </div>
+      <div class="item-row">
+        <input type="checkbox" id="item5" class="item-checkbox" data-name="Bread" data-price="40">
+        <label for="item5">Bread — Rs.40</label>
+      </div>
+      <div class="item-row">
+        <input type="checkbox" id="item6" class="item-checkbox" data-name="Butter" data-price="75">
+        <label for="item6">Butter — Rs.75</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset id="paymentFieldset">
+    <legend>Select Payment Method</legend>
+    <div class="payment-options">
+      <div class="payment-row">
+        <input type="radio" id="paymentCash" name="paymentMethod" value="cash">
+        <label for="paymentCash">Cash (No Discount)</label>
+      </div>
+      <div class="payment-row">
+        <input type="radio" id="paymentCard" name="paymentMethod" value="card">
+        <label for="paymentCard">Card (5% Discount)</label>
+      </div>
+      <div class="payment-row">
+        <input type="radio" id="paymentUpi" name="paymentMethod" value="upi">
+        <label for="paymentUpi">UPI (10% Discount)</label>
+      </div>
+    </div>
+    <div id="paymentDisplay">Selected Payment: None</div>
+  </fieldset>
+
+  <div class="buttons">
+    <button type="button" id="calculateBtn">Calculate Bill</button>
+    <button type="button" id="resetBillBtn">Reset</button>
+  </div>
+
+  <fieldset id="summaryFieldset">
+    <legend>Bill Summary</legend>
+    <div class="summary-boxes">
+      <div class="summary-box">
+        <div class="label">Total Amount (Rs.)</div>
+        <div class="value" id="totalAmount">0</div>
+      </div>
+      <div class="summary-box">
+        <div class="label">Discount (Rs.)</div>
+        <div class="value" id="discountAmount">0</div>
+      </div>
+      <div class="summary-box">
+        <div class="label">Final Amount (Rs.)</div>
+        <div class="value" id="finalAmount">0</div>
+      </div>
+    </div>
+    <p><strong>Selected Items:</strong></p>
+    <ul id="itemSummary">
+      <li>None</li>
+    </ul>
+  </fieldset>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
